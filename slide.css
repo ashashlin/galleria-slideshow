@@ -1,0 +1,427 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap");
+
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+body {
+  /* 3. Add accessible line-height */
+  line-height: 1.5;
+  /* 4. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 5. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 6. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 7. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 8. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+/*
+  9. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+:root {
+  --black: #000000;
+  --grey: #7d7d7d;
+  --light-grey: #e5e5e5;
+  --v-light-grey: #f3f3f3;
+  --white: #ffffff;
+
+  --ff-primary: "Libre Baskerville";
+
+  --fs-display: 12.5rem;
+  --fs-heading-1: 3.5rem;
+  --fs-heading-2: 1.5rem;
+  --fs-heading-3: 1.125rem;
+  --fs-subhead-1: 0.9375rem;
+  --fs-subhead-2: 0.8125rem;
+  --fs-link-1: 0.75rem;
+  --fs-link-2: 0.5625rem;
+  --fs-body: 0.875rem;
+
+  --fw-400: 400;
+  --fw-700: 700;
+
+  --lh-display: 0.75;
+  --lh-heading-1: 1.14;
+  --lh-heading-2: 1.21;
+  --lh-heading-3: 1.22;
+  --lh-subhead-1: 1.27;
+  --lh-subhead-2: 1.31;
+  --lh-link-1: 1.25;
+  --lh-link-2: 1.22;
+  --lh-body: 2;
+
+  --ls-link-1: 2.5px;
+  --ls-link-2: 2px;
+}
+
+body {
+  font-family: var(--ff-primary);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background-color: var(--light-grey);
+}
+
+.logo-home img {
+  width: 7.06rem;
+}
+
+.stop-slideshow {
+  text-transform: uppercase;
+  font-size: var(--fs-link-2);
+  font-weight: var(--fw-700);
+  line-height: var(--lh-link-2);
+  letter-spacing: var(--ls-link-2);
+  color: var(--grey);
+  transition: color 150ms;
+}
+
+.stop-slideshow:hover {
+  color: var(--black);
+}
+
+.slide {
+  display: flex;
+  flex-direction: column;
+  gap: 10.75rem;
+  padding: 1.5rem;
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.painting-intro {
+  position: relative;
+}
+
+.painting-hero {
+  position: relative;
+}
+
+.view-img {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 0.875rem 1rem;
+  text-transform: uppercase;
+  font-size: var(--fs-link-2);
+  font-weight: var(--fw-700);
+  line-height: var(--lh-link-2);
+  letter-spacing: var(--ls-link-2);
+  background-color: rgba(0 0 0 / 0.75);
+  color: var(--white);
+  cursor: pointer;
+  transition: background-color 150ms;
+}
+
+.view-img:hover {
+  background-color: rgba(255 255 255 / 0.3);
+}
+
+.painting-info .container {
+  position: relative;
+  position: absolute;
+  bottom: -3.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 85.62%;
+  padding: 1.5rem;
+  background-color: var(--white);
+}
+
+.painting-name {
+  font-size: var(--fs-heading-2);
+  font-weight: var(--fw-700);
+  line-height: var(--lh-heading-2);
+}
+
+.painting-artist {
+  font-size: var(--fs-subhead-1);
+  letter-spacing: var(--lh-subhead-1);
+  color: var(--grey);
+}
+
+.artist-img {
+  position: absolute;
+  top: 100%;
+  left: 1rem;
+  width: 4rem;
+}
+
+.painting-description {
+  position: relative;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  font-weight: var(--fw-700);
+  color: var(--grey);
+  margin-bottom: 2.75rem;
+}
+
+.painting-year {
+  position: absolute;
+  top: -13%;
+  right: 0;
+  font-size: 6.25rem;
+  line-height: var(--lh-display);
+  color: var(--v-light-grey);
+  z-index: -1;
+}
+
+.description {
+  margin-bottom: 4.25rem;
+}
+
+.source-link {
+  text-transform: uppercase;
+  text-decoration: underline;
+  font-size: var(--fs-link-2);
+  line-height: var(--lh-link-2);
+  letter-spacing: var(--ls-link-2);
+  transition: color 150ms;
+}
+
+.source-link:hover {
+  color: var(--black);
+}
+
+.progress-bar {
+  height: 1px;
+  background-color: var(--light-grey);
+}
+
+.slide-footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+}
+
+.slide-footer .info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.slide-footer .name {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  font-weight: var(--fw-700);
+}
+
+.slide-footer .artist {
+  font-size: var(--fs-link-2);
+  opacity: 0.75;
+}
+
+.media-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.media-btn svg g {
+  transition: stroke 150ms;
+}
+
+.media-btn:hover svg g {
+  stroke: var(--grey);
+}
+
+@media (min-width: 48rem) {
+  header {
+    padding: 1.75rem 2.5rem;
+  }
+
+  .stop-slideshow {
+    font-size: var(--fs-link-1);
+    line-height: var(--lh-link-1);
+    letter-spacing: var(--ls-link-1);
+  }
+
+  .slide {
+    gap: 8.75rem;
+    padding: 2.5rem;
+  }
+
+  .painting-hero {
+    margin-bottom: 0;
+  }
+
+  .hero-img {
+    width: 29.6875rem;
+  }
+
+  .view-img {
+    top: auto;
+    bottom: 1rem;
+  }
+
+  .painting-info .container {
+    top: -1px;
+    right: 0;
+    bottom: auto;
+    gap: 1.5rem;
+    width: 64.68%;
+    padding: 0 4.1rem 4.1rem;
+  }
+
+  .painting-name {
+    font-size: var(--fs-heading-1);
+    line-height: var(--lh-heading-1);
+  }
+
+  .artist-img {
+    right: 3.4375rem;
+    left: auto;
+    width: 8rem;
+  }
+
+  .painting-description {
+    padding: 0 7.1875rem;
+    margin-bottom: 0.875rem;
+  }
+
+  .painting-year {
+    top: -25%;
+    left: 0;
+    font-size: var(--fs-display);
+  }
+
+  .description {
+    margin-bottom: 2.5rem;
+  }
+
+  .slide-footer .container {
+    padding: 1.5rem 2.5rem;
+  }
+
+  .slide-footer .name {
+    font-size: var(--fs-heading-3);
+    line-height: var(--lh-heading-3);
+  }
+
+  .slide-footer .artist {
+    font-size: var(--fs-subhead-2);
+  }
+
+  .media-buttons {
+    gap: 2.5rem;
+  }
+}
+
+@media (min-width: 90rem) {
+  header {
+    padding: 2.5rem;
+  }
+
+  .logo-home img {
+    width: auto;
+  }
+
+  .slide {
+    flex-direction: row;
+    gap: 1.875rem;
+    max-width: 90rem;
+    padding: 6.25rem 2.5rem 4.6875rem;
+  }
+
+  .painting-intro {
+    flex: 1;
+  }
+
+  .painting-info .container {
+    width: 52.1%;
+  }
+
+  .artist-img {
+    top: 210%;
+    right: 13.5rem;
+  }
+
+  .painting-description {
+    flex-basis: 35%;
+    padding: 7.1875rem 7.8125rem 3.375rem 0;
+    margin: 0;
+  }
+
+  .description {
+    margin-bottom: 5.0625rem;
+  }
+
+  .painting-year {
+    top: 0;
+  }
+}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
+
+    <link rel="stylesheet" href="slide.css" />
+
+    <title>Frontend Mentor | Galleria slideshow site</title>
+  </head>
+  <body>
+    <header>
+      <a class="logo-home" href="/">
+        <img
+          src="assets/shared/logo.svg"
+          alt="galleria logo that links to the home page"
+        />
+      </a>
+
+      <a class="stop-slideshow" href=""> Stop slideshow </a>
+    </header>
+
+    <main>
+      <article class="slide">
+        <div class="painting-intro">
+          <div class="painting-hero">
+            <picture>
+              <source
+                media="(min-width: 48rem)"
+                srcset="assets/starry-night/hero-large.jpg"
+              />
+
+              <img
+                class="hero-img"
+                src="assets/starry-night/hero-small.jpg"
+                alt=""
+              />
+            </picture>
+
+            <div class="view-img">
+              <img src="assets/shared/icon-view-image.svg" alt="" />
+
+              <span>View image</span>
+            </div>
+          </div>
+
+          <div class="painting-info">
+            <div class="container">
+              <p class="painting-name">Starry Night</p>
+              <p class="painting-artist">Vincent Van Gogh</p>
+
+              <img
+                class="artist-img"
+                src="assets/starry-night/artist.jpg"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="painting-description">
+          <div class="painting-year">1889</div>
+
+          <p class="description">
+            Although The Starry Night was painted during the day in Van Gogh's
+            ground-floor studio, it would be inaccurate to state that the
+            picture was painted from memory. The view has been identified as the
+            one from his bedroom window, facing east, a view which Van Gogh
+            painted variations of no fewer than twenty-one times, including The
+            Starry Night. "Through the iron-barred window," he wrote to his
+            brother, Theo, around 23 May 1889, "I can see an enclosed square of
+            wheat ... above which, in the morning, I watch the sun rise in all
+            its glory."
+          </p>
+
+          <a
+            class="source-link"
+            href="https://en.wikipedia.org/wiki/The_Starry_Night"
+          >
+            Go to source
+          </a>
+        </div>
+      </article>
+
+      <div class="slide-footer">
+        <div class="progress-bar">
+          <div class="progress-bar-inner"></div>
+        </div>
+
+        <div class="container">
+          <div class="info">
+            <p class="name">Starry Night</p>
+            <p class="artist">Vincent Van Gogh</p>
+          </div>
+          <div class="media-buttons">
+            <a class="media-btn last-slide" href="#">
+              <svg width="26" height="24" xmlns="http://www.w3.org/2000/svg">
+                <g stroke="#000" fill="none" fill-rule="evenodd">
+                  <path
+                    d="M24.166 1.843L3.627 12.113l20.539 10.269V1.843z"
+                    stroke-width="2"
+                  />
+                  <path fill="#D8D8D8" d="M.986.5h-1v22.775h1z" />
+                </g>
+              </svg>
+            </a>
+            <a class="media-btn next-slide" href="#">
+              <svg width="26" height="24" xmlns="http://www.w3.org/2000/svg">
+                <g stroke="#000" fill="none" fill-rule="evenodd">
+                  <path
+                    d="M1.528 1.843l20.538 10.27L1.528 22.382V1.843z"
+                    stroke-width="2"
+                  />
+                  <path fill="#D8D8D8" d="M24.708.5h1v22.775h-1z" />
+                </g>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <dialog class="modal view-image-modal">
+        <button class="close-modal">Close</button>
+
+        <img src="assets/starry-night/gallery.jpg" alt="" />
+      </dialog>
+    </main>
+  </body>
+</html>
