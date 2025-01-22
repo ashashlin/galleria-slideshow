@@ -114,6 +114,12 @@ a {
   color: inherit;
 }
 
+.btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
 header {
   position: relative;
   display: flex;
@@ -300,6 +306,46 @@ header::after {
   stroke: var(--grey);
 }
 
+.image-modal {
+  position: relative;
+  /* position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+  border: none;
+  background-color: transparent;
+  max-width: 100%;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.image-modal::backdrop {
+  background-color: rgba(0 0 0 / 0.9);
+}
+
+.image-modal .container {
+  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 917px;
+  width: 100%;
+  padding: 0 1.5rem;
+}
+
+.close-modal {
+  position: absolute;
+  top: -3.5rem;
+  right: 1.5rem;
+  text-transform: uppercase;
+  font-size: var(--fs-body);
+  font-weight: var(--fw-700);
+  line-height: var(--lh-body);
+  letter-spacing: 3px;
+  color: var(--white);
+}
+
 @media (min-width: 48rem) {
   header {
     padding: 1.75rem 2.5rem;
@@ -379,6 +425,14 @@ header::after {
 
   .media-buttons {
     gap: 2.5rem;
+  }
+
+  .image-modal .container {
+    padding: 0 3rem;
+  }
+
+  .close-modal {
+    right: 3rem;
   }
 }
 

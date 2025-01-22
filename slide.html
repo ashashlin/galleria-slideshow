@@ -44,7 +44,7 @@
               />
             </picture>
 
-            <div class="view-img">
+            <div class="view-img js-view-img">
               <img src="assets/shared/icon-view-image.svg" alt="" />
 
               <span>View image</span>
@@ -126,11 +126,18 @@
         </div>
       </div>
 
-      <dialog class="modal view-image-modal">
-        <button class="close-modal">Close</button>
-
-        <img src="assets/starry-night/gallery.jpg" alt="" />
+      <dialog class="modal image-modal js-image-modal">
+        <div class="container">
+          <button class="btn close-modal">Close</button>
+          <img
+            class="painting-gallery"
+            src="assets/starry-night/gallery.jpg"
+            alt=""
+          />
+        </div>
       </dialog>
     </main>
+
+    <script src="slide.js"></script>
   </body>
 </html>
