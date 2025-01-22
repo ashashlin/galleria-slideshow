@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap");
+
 /* 1. Use a more-intuitive box-sizing model */
 *,
 *::before,
@@ -73,4 +75,165 @@ h6 {
   --light-grey: #e5e5e5;
   --v-light-grey: #f3f3f3;
   --white: #ffffff;
+
+  --ff-primary: "Libre Baskerville";
+
+  --fs-display: 12.5rem;
+  --fs-heading-1: 3.5rem;
+  --fs-heading-2: 1.5rem;
+  --fs-heading-3: 1.125rem;
+  --fs-subhead-1: 0.9375rem;
+  --fs-subhead-2: 0.8125rem;
+  --fs-link-1: 0.75rem;
+  --fs-link-2: 0.5625rem;
+  --fs-body: 0.875rem;
+
+  --fw-400: 400;
+  --fw-700: 700;
+
+  --lh-display: 0.75;
+  --lh-heading-1: 1.14;
+  --lh-heading-2: 1.21;
+  --lh-heading-3: 1.22;
+  --lh-subhead-1: 1.27;
+  --lh-subhead-2: 1.31;
+  --lh-link-1: 1.25;
+  --lh-link-2: 1.22;
+  --lh-body: 2;
+
+  --ls-link-1: 2.5px;
+  --ls-link-2: 2px;
+}
+
+body {
+  font-family: var(--ff-primary);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background-color: var(--light-grey);
+}
+
+.logo-home img {
+  width: 7.06rem;
+}
+
+.start-slideshow {
+  text-transform: uppercase;
+  font-size: var(--fs-link-2);
+  font-weight: var(--fw-700);
+  line-height: var(--lh-link-2);
+  letter-spacing: var(--ls-link-2);
+  color: var(--grey);
+  transition: color 150ms;
+}
+
+.start-slideshow:hover {
+  color: var(--black);
+}
+
+.slides {
+  columns: 4 310px;
+  column-gap: 2.5rem;
+  text-align: center;
+  padding: 1.5rem;
+  margin: 0 auto;
+}
+
+.slide {
+  position: relative;
+  display: inline-block;
+  text-align: left;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  transition: opacity 150ms;
+}
+
+.slide:hover {
+  opacity: 0.5;
+}
+
+.slide::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(0 0 0 / 0) 60%, rgba(0 0 0 / 0.8));
+}
+
+.painting-info {
+  position: absolute;
+  left: 2rem;
+  right: 2rem;
+  bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: var(--white);
+}
+
+.painting-name {
+  font-size: var(--fs-heading-2);
+  font-weight: var(--fw-700);
+  line-height: var(--lh-heading-2);
+}
+
+.painting-artist {
+  font-size: var(--fs-subhead-2);
+  line-height: var(--lh-subhead-2);
+  opacity: 0.75;
+}
+
+@media (min-width: 48rem) {
+  header {
+    padding: 1.75rem 2.5rem;
+  }
+
+  .start-slideshow {
+    font-size: var(--fs-link-1);
+    line-height: var(--lh-link-1);
+    letter-spacing: var(--ls-link-1);
+  }
+
+  .slides {
+    max-width: 48rem;
+    padding: 2.5rem;
+  }
+}
+
+@media (min-width: 70rem) {
+  .slides {
+    max-width: 70rem;
+  }
+}
+
+@media (min-width: 90rem) {
+  header {
+    padding: 2.5rem;
+  }
+
+  .logo-home img {
+    width: auto;
+  }
+
+  .slides {
+    max-width: 90rem;
+  }
 }
