@@ -76,8 +76,8 @@ function generateSlideHTML() {
     </article>
 
     <div class="slide-footer">
-      <div class="progress-bar">
-        <div class="progress-bar-inner"></div>
+      <div class="progress-bar js-progress-bar">
+        <div class="progress-bar-inner js-progress-bar-inner"></div>
       </div>
 
       <div class="container">
@@ -163,6 +163,11 @@ function goToLastOrNextSlide() {
 
     generateSlideHTML();
     goToLastOrNextSlide();
+
+    time = 0;
+    width = 0;
+    setProgressBarInner();
+
     viewImage();
   });
 
@@ -174,10 +179,68 @@ function goToLastOrNextSlide() {
 
     generateSlideHTML();
     goToLastOrNextSlide();
+
+    time = 0;
+    width = 0;
+    setProgressBarInner();
+
     viewImage();
   });
 }
 goToLastOrNextSlide();
+
+let time = 0;
+let width = 0;
+let timer;
+
+function setProgressBarInner() {
+  const name = localStorage.getItem("name");
+
+  let currentPainting;
+  let currentPaintingIndex;
+
+  paintings.forEach((painting, index) => {
+    if (painting.name === name) {
+      currentPainting = painting;
+      currentPaintingIndex = index;
+    }
+  });
+
+  const progressBar = document.querySelector(".js-progress-bar");
+  const progressBarInner = document.querySelector(".js-progress-bar-inner");
+
+  clearInterval(timer);
+
+  timer = setInterval(() => {
+    if (time < 600) {
+      time++;
+      width += 0.166666;
+
+      progressBarInner.style.width = `${width}%`;
+    } else {
+      clearInterval(timer);
+
+      const matchingPainting = paintings[currentPaintingIndex + 1];
+
+      if (!matchingPainting) {
+        return;
+      }
+
+      const { name } = matchingPainting;
+      localStorage.setItem("name", name);
+
+      generateSlideHTML();
+      goToLastOrNextSlide();
+
+      time = 0;
+      width = 0;
+      setProgressBarInner();
+
+      viewImage();
+    }
+  }, 50);
+}
+setProgressBarInner();
 
 function viewImage() {
   const name = localStorage.getItem("name");
@@ -199,10 +262,12 @@ function viewImage() {
   container.style.maxWidth = matchingPainting.galleryWidth;
 
   viewImg.addEventListener("click", () => {
+    clearInterval(timer);
     imgModal.showModal();
 
     closeModal.addEventListener("click", () => {
       imgModal.close();
+      setProgressBarInner();
     });
   });
 }
