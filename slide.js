@@ -1,8 +1,8 @@
 import { paintings } from "./data.js";
 
-const name = localStorage.getItem("name");
-
 function generateSlideHTML() {
+  const name = localStorage.getItem("name");
+
   let matchingPainting;
 
   for (const painting of paintings) {
@@ -85,9 +85,9 @@ function generateSlideHTML() {
           <p class="artist">${artistName}</p>
         </div>
         <div class="media-buttons">
-          <a class="media-btn last-slide" href="#">
-            <svg width="26" height="24" xmlns="http://www.w3.org/2000/svg">
-              <g stroke="#000" fill="none" fill-rule="evenodd">
+          <a class="media-btn last-slide js-last-slide" href="#">
+            <svg class="last-slide-icon js-last-slide-icon" width="26" height="24" xmlns="http://www.w3.org/2000/svg">
+              <g class="js-last-slide-g" stroke="#000" fill="none" fill-rule="evenodd">
                 <path
                   d="M24.166 1.843L3.627 12.113l20.539 10.269V1.843z"
                   stroke-width="2"
@@ -96,9 +96,9 @@ function generateSlideHTML() {
               </g>
             </svg>
           </a>
-          <a class="media-btn next-slide" href="#">
-            <svg width="26" height="24" xmlns="http://www.w3.org/2000/svg">
-              <g stroke="#000" fill="none" fill-rule="evenodd">
+          <a class="media-btn next-slide js-next-slide" href="#">
+            <svg class="next-slide-icon js-next-slide-icon" width="26" height="24" xmlns="http://www.w3.org/2000/svg">
+              <g class="js-next-slide-g" stroke="#000" fill="none" fill-rule="evenodd">
                 <path
                   d="M1.528 1.843l20.538 10.27L1.528 22.382V1.843z"
                   stroke-width="2"
@@ -127,3 +127,51 @@ function generateSlideHTML() {
   main.innerHTML = slideHTML;
 }
 generateSlideHTML();
+
+function goToLastOrNextSlide() {
+  const name = localStorage.getItem("name");
+
+  const lastSlide = document.querySelector(".js-last-slide");
+  const lastSlideIcon = document.querySelector(".js-last-slide-icon");
+  const nextSlide = document.querySelector(".js-next-slide");
+  const nextSlideIcon = document.querySelector(".js-next-slide-icon");
+
+  if (name === paintings[0].name) {
+    lastSlideIcon.style.opacity = 0.15;
+    lastSlide.style.pointerEvents = "none";
+  } else if (name === paintings[paintings.length - 1].name) {
+    nextSlideIcon.style.opacity = 0.15;
+    nextSlide.style.pointerEvents = "none";
+  }
+
+  let currentPainting;
+  let currentPaintingIndex;
+
+  paintings.forEach((painting, index) => {
+    if (painting.name === name) {
+      currentPainting = painting;
+      currentPaintingIndex = index;
+    }
+  });
+
+  lastSlide.addEventListener("click", () => {
+    const matchingPainting = paintings[currentPaintingIndex - 1];
+
+    const { name } = matchingPainting;
+    localStorage.setItem("name", name);
+
+    generateSlideHTML();
+    goToLastOrNextSlide();
+  });
+
+  nextSlide.addEventListener("click", () => {
+    const matchingPainting = paintings[currentPaintingIndex + 1];
+
+    const { name } = matchingPainting;
+    localStorage.setItem("name", name);
+
+    generateSlideHTML();
+    goToLastOrNextSlide();
+  });
+}
+goToLastOrNextSlide();
