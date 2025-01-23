@@ -68,6 +68,7 @@ function generateSlideHTML() {
         <a
           class="source-link"
           href="${source}"
+          target="_blank"
         >
           Go to source
         </a>
@@ -112,8 +113,8 @@ function generateSlideHTML() {
     </div>
 
     <dialog class="modal image-modal js-image-modal">
-      <div class="container">
-        <button class="btn close-modal">Close</button>
+      <div class="container js-container">
+        <button class="btn close-modal js-close-modal">Close</button>
         <img
           class="painting-gallery"
           src="${gallery}"
@@ -162,6 +163,7 @@ function goToLastOrNextSlide() {
 
     generateSlideHTML();
     goToLastOrNextSlide();
+    viewImage();
   });
 
   nextSlide.addEventListener("click", () => {
@@ -172,6 +174,36 @@ function goToLastOrNextSlide() {
 
     generateSlideHTML();
     goToLastOrNextSlide();
+    viewImage();
   });
 }
 goToLastOrNextSlide();
+
+function viewImage() {
+  const name = localStorage.getItem("name");
+
+  let matchingPainting;
+
+  for (const painting of paintings) {
+    if (painting.name === name) {
+      matchingPainting = painting;
+      break;
+    }
+  }
+
+  const viewImg = document.querySelector(".js-view-img");
+  const imgModal = document.querySelector(".js-image-modal");
+  const closeModal = document.querySelector(".js-close-modal");
+  const container = imgModal.querySelector(".js-container");
+
+  container.style.maxWidth = matchingPainting.galleryWidth;
+
+  viewImg.addEventListener("click", () => {
+    imgModal.showModal();
+
+    closeModal.addEventListener("click", () => {
+      imgModal.close();
+    });
+  });
+}
+viewImage();

@@ -17,6 +17,7 @@ export const paintings = [
       },
       gallery: "./assets/starry-night/gallery.jpg",
     },
+    galleryWidth: "917px",
   },
   {
     name: "Girl with a Pearl Earring",
@@ -36,6 +37,7 @@ export const paintings = [
       },
       gallery: "./assets/girl-with-pearl-earring/gallery.jpg",
     },
+    galleryWidth: "519px",
   },
   {
     name: "Guernica",
@@ -55,6 +57,7 @@ export const paintings = [
       },
       gallery: "./assets/guernica/gallery.jpg",
     },
+    galleryWidth: "1253px",
   },
   {
     name: "Penitent Magdalene",
@@ -75,6 +78,7 @@ export const paintings = [
       },
       gallery: "./assets/penitent-magdalene/gallery.jpg",
     },
+    galleryWidth: "573px",
   },
   {
     name: "The Storm on the Sea of Galilee",
@@ -94,6 +98,7 @@ export const paintings = [
       },
       gallery: "./assets/the-storm-on-the-sea-of-galilee/gallery.jpg",
     },
+    galleryWidth: "597px",
   },
   {
     name: "The Great Wave off Kanagawa",
@@ -113,6 +118,7 @@ export const paintings = [
       },
       gallery: "./assets/the-great-wave-off-kanagawa/gallery.jpg",
     },
+    galleryWidth: "809px",
   },
   {
     name: "Van Gogh Self-portrait",
@@ -132,6 +138,7 @@ export const paintings = [
       },
       gallery: "./assets/van-gogh-self-portrait/gallery.jpg",
     },
+    galleryWidth: "597px",
   },
   {
     name: "The Sleeping Gypsy",
@@ -151,6 +158,7 @@ export const paintings = [
       },
       gallery: "./assets/the-sleeping-gypsy/gallery.jpg",
     },
+    galleryWidth: "1107px",
   },
   {
     name: "Lady with an Ermine",
@@ -170,6 +178,7 @@ export const paintings = [
       },
       gallery: "./assets/lady-with-an-ermine/gallery.jpg",
     },
+    galleryWidth: "537px",
   },
   {
     name: "The Night Café",
@@ -189,6 +198,7 @@ export const paintings = [
       },
       gallery: "./assets/the-night-cafe/gallery.jpg",
     },
+    galleryWidth: "947px",
   },
   {
     name: "The Basket of Apples",
@@ -208,6 +218,7 @@ export const paintings = [
       },
       gallery: "./assets/the-basket-of-apples/gallery.jpg",
     },
+    galleryWidth: "869px",
   },
   {
     name: "The Boy in the Red Vest",
@@ -227,6 +238,7 @@ export const paintings = [
       },
       gallery: "./assets/the-boy-in-the-red-vest/gallery.jpg",
     },
+    galleryWidth: "597px",
   },
   {
     name: "Arnolfini Portrait",
@@ -246,6 +258,7 @@ export const paintings = [
       },
       gallery: "./assets/arnolfini-portrait/gallery.jpg",
     },
+    galleryWidth: "509px",
   },
   {
     name: "Mona Lisa",
@@ -265,6 +278,7 @@ export const paintings = [
       },
       gallery: "./assets/mona-lisa/gallery.jpg",
     },
+    galleryWidth: "509px",
   },
   {
     name: "The Swing",
@@ -284,5 +298,6 @@ export const paintings = [
       },
       gallery: "./assets/the-swing/gallery.jpg",
     },
+    galleryWidth: "585px",
   },
 ];
