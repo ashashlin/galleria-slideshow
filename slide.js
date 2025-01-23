@@ -155,7 +155,9 @@ function goToLastOrNextSlide() {
     }
   });
 
-  lastSlide.addEventListener("click", () => {
+  lastSlide.addEventListener("click", (e) => {
+    e.preventDefault();
+
     const matchingPainting = paintings[currentPaintingIndex - 1];
 
     const { name } = matchingPainting;
@@ -171,7 +173,9 @@ function goToLastOrNextSlide() {
     viewImage();
   });
 
-  nextSlide.addEventListener("click", () => {
+  nextSlide.addEventListener("click", (e) => {
+    e.preventDefault();
+
     const matchingPainting = paintings[currentPaintingIndex + 1];
 
     const { name } = matchingPainting;
